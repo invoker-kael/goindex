@@ -1,3 +1,5 @@
+去掉了预览功能，可以用IDM下载全部链接
+
 ![GoIndex](https://raw.githubusercontent.com/donwa/goindex/master/themes/logo.png)  
 
 GoIndex  

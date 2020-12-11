@@ -362,11 +362,11 @@ function append_files_to_list(path, files) {
         });
       }
       var ext = p.split('.').pop().toLowerCase();
-      if ("|html|php|css|go|java|js|json|txt|sh|md|mp4|webm|avi|bmp|jpg|jpeg|png|gif|m4a|mp3|flac|wav|ogg|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|pdf|".indexOf(`|${ext}|`) >= 0) {
-        targetFiles.push(filepath);
-        p += "?a=view";
-        c += " view";
-      }
+//       if ("|html|php|css|go|java|js|json|txt|sh|md|mp4|webm|avi|bmp|jpg|jpeg|png|gif|m4a|mp3|flac|wav|ogg|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|pdf|".indexOf(`|${ext}|`) >= 0) {
+//         targetFiles.push(filepath);
+//         p += "?a=view";
+//         c += " view";
+//       }
       html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a gd-type="${item.mimeType}" href="${p}" class="${c}">
 	          <div class="mdui-col-xs-12 mdui-col-sm-7 mdui-text-truncate" title="${item.name}">
 	          <i class="mdui-icon material-icons">insert_drive_file</i>
@@ -663,31 +663,31 @@ function get_file(path, file, callback) {
 
 
 // 文件展示 ?a=view
-// function file(path) {
-//   var name = path.split('/').pop();
-//   var ext = name.split('.').pop().toLowerCase().replace(`?a=view`, "").toLowerCase();
-//   if ("|html|php|css|go|java|js|json|txt|sh|md|".indexOf(`|${ext}|`) >= 0) {
-//     return file_code(path);
-//   }
+function file(path) {
+  var name = path.split('/').pop();
+  var ext = name.split('.').pop().toLowerCase().replace(`?a=view`, "").toLowerCase();
+  if ("|html|php|css|go|java|js|json|txt|sh|md|".indexOf(`|${ext}|`) >= 0) {
+    return file_code(path);
+  }
 
-//   if ("|mp4|webm|avi|".indexOf(`|${ext}|`) >= 0) {
-//     return file_video(path);
-//   }
+  if ("|mp4|webm|avi|".indexOf(`|${ext}|`) >= 0) {
+    return file_video(path);
+  }
 
-//   if ("|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
-//     return file_video(path);
-//   }
+  if ("|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
+    return file_video(path);
+  }
 
-//   if ("|mp3|flac|wav|ogg|m4a|".indexOf(`|${ext}|`) >= 0) {
-//     return file_audio(path);
-//   }
+  if ("|mp3|flac|wav|ogg|m4a|".indexOf(`|${ext}|`) >= 0) {
+    return file_audio(path);
+  }
 
-//   if ("|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0) {
-//     return file_image(path);
-//   }
+  if ("|bmp|jpg|jpeg|png|gif|".indexOf(`|${ext}|`) >= 0) {
+    return file_image(path);
+  }
 
-//   if ('pdf' === ext) return file_pdf(path);
-// }
+  if ('pdf' === ext) return file_pdf(path);
+}
 
 // 文件展示 |html|php|css|go|java|js|json|txt|sh|md|
 function file_code(path) {

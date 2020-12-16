@@ -665,7 +665,7 @@ function get_file(path, file, callback) {
 // 文件展示 ?a=view
 function file(path) {
   var name = path.split('/').pop();
-  var ext = name.split('.').pop().toLowerCase().replace(``, "").toLowerCase();
+  var ext = name.split('.').pop().toLowerCase().replace(`?a=view`, "").toLowerCase();
   if ("|html|php|css|go|java|js|json|txt|sh|md|".indexOf(`|${ext}|`) >= 0) {
     return file_code(path);
   }

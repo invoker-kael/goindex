@@ -126,7 +126,7 @@ function nav(path) {
   var search_text = model.is_search_page ? (model.q || '') : '';
   const isMobile = Os.isMobile;
   var search_bar = `<div class="mdui-toolbar-spacer"></div>
-        <div id="search_bar" class="mdui-textfield mdui-textfield-expandable mdui-float-right ${model.is_search_page ? 'mdui-textfield-expanded' : ''}" style="max-width:${isMobile ? 300 : 400}px">
+        <div id="search_bar" class="mdui-textfield mdui-textfield-expandable mdui-float-right mdui-text-color-white-text ${model.is_search_page ? 'mdui-textfield-expanded' : ''}" style="max-width:${isMobile ? 300 : 400}px">
             <button class="mdui-textfield-icon mdui-btn mdui-btn-icon" onclick="if($('#search_bar').hasClass('mdui-textfield-expanded') && $('#search_bar_form>input').val()) $('#search_bar_form').submit();">
                 <i class="mdui-icon material-icons">search</i>
             </button>
@@ -195,7 +195,6 @@ function requestSearch(params, resultCallback) {
 function list(path) {
   var content = `
 	<div id="head_md" class="mdui-typo" style="display:none;padding: 20px 0;"></div>
-
 	 <div class="mdui-row"> 
 	  <ul class="mdui-list"> 
 	   <li class="mdui-list-item th"> 
@@ -429,7 +428,6 @@ function append_files_to_list(path, files) {
 function render_search_result_list() {
   var content = `
 	<div id="head_md" class="mdui-typo" style="display:none;padding: 20px 0;"></div>
-
 	 <div class="mdui-row"> 
 	  <ul class="mdui-list"> 
 	   <li class="mdui-list-item th"> 
@@ -715,7 +713,6 @@ function file_code(path) {
 	<input class="mdui-textfield-input" type="text" value="${href}"/>
 </div>
 <a href="${href}" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
-
 <script src="https://cdn.staticfile.org/ace/1.4.7/ace.js"></script>
 <script src="https://cdn.staticfile.org/ace/1.4.7/ext-language_tools.js"></script>
 	`;
@@ -1020,7 +1017,6 @@ $(function () {
       render(url);
       return false;
   });
-
   $("body").on("click", '.view', function () {
       var url = $(this).attr('href');
       history.pushState(null, null, url);

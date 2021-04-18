@@ -363,7 +363,7 @@ function append_files_to_list(path, files) {
       var ext = p.split('.').pop().toLowerCase();
       if ("|html|php|css|go|java|js|json|txt|sh|md|mp4|webm|avi|bmp|jpg|jpeg|png|gif|m4a|mp3|flac|wav|ogg|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|pdf|".indexOf(`|${ext}|`) >= 0) {
         targetFiles.push(filepath);
-        p += "";
+        p += "?a=view";
         c += "view";
       }
       html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a gd-type="${item.mimeType}" href="${p}" class="${c}">
@@ -610,7 +610,7 @@ function onSearchResultItemClick(a_ele) {
   $.post(`/${cur}:id2path`, {id: a_ele.id}, function (data) {
     if (data) {
       dialog.close();
-      var href = `/${cur}:${data}${can_preview ? '' : ''}`;
+      var href = `/${cur}:${data}${can_preview ? '?a=view' : ''}`;
       dialog = mdui.dialog({
         title: '<i class="mdui-icon material-icons">&#xe815;</i>目标路径',
         content: `<a href="${href}">${data}</a>`,
